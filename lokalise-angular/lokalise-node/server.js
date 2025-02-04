@@ -1,10 +1,14 @@
 import express from 'express';
 import { LokaliseApi } from '@lokalise/node-api';
+import cors from 'cors';
 
 const LOKALISE_API_KEY = '2e2d01925db5058c8c02ffdcd13c5fbc6d22d0be';
 const PROJECT_ID = '5299555567a187890d0fc7.02721238';
 const app = express();
 const lokalise = new LokaliseApi({ apiKey: LOKALISE_API_KEY });
+
+// Configura el middleware CORS
+app.use(cors());
 
 app.get('/translations', async (req, res) => {
   try {
